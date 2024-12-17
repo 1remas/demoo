@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        love test
+    </title>
+    <link rel="icon" href="pics/heart.jpg" type="heart/jpg">
+    <style>
+        body{ background-color: #ffe4e1;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+
+        }
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff69b4;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            color: white;
+            background: linear-gradient(to top, #f7b7d7, #ff69b4);
+            border: 2px solid #ff1493;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 0 #ffffff;
+            font-family: 'Courier New', Courier, monospace; 
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to top, #f7b7d7, #ff1493);
+            box-shadow: 0 7px 0 rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+            transform: translateY(2px);
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            margin-top: 20px;
+            display: none;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .move-button {
+            position: absolute;
+            transition: all 0.2s ease;
+        }
+    </style>
+</head> 
+<body>
+    <div class="container">
+        <h1>Do you love me?</h1>
+        <div class="sticker">
+
+            <img src="pics/cuteu.mp4" alt="sticker" style="max-width: 100%; height: auto;">
+        </div>
+        
+        <div class="button-container">
+            <button id="yesButton">Yes</button>
+            <button id="noButton">No</button>
+        </div>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById("yesButton");
+        const noButton = document.getElementById("noButton");
+        const message = document.getElementById("message");
+
+        yesButton.addEventListener("click", () => {
+            message.textContent = "Aww, I love you too! 💖";
+            message.style.display = "block";
+        });
+
+        noButton.addEventListener("click", () => {
+            
+            const maxX = window.innerWidth - noButton.offsetWidth;
+            const maxY = window.innerHeight - noButton.offsetHeight;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+            
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+
+          
+            noButton.classList.add("move-button");
+        });
+    </script>
+</body>
+</html>
